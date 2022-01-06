@@ -37,14 +37,11 @@ class SignIn extends Component {
       registered
     );
     signInResult = response.data;
-    console.log(signInResult.userExists);
-    //console.log(signInResult);
-    // //const user = res.data
-    //if user exists =>
-
-    // window.location = '/MyPage';
-    // const result = axios.post('http://localhost:4000/api/SignIn', registered);
-    // console.log(result);
+    if (signInResult.userExists === true) {
+      window.location = '/MyPage';
+    } else {
+      window.location = '/';
+    }
   }
 
   render() {

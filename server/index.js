@@ -4,6 +4,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import { signUpRoute } from './screens/signUp/route.js';
 import { signInRoute } from './screens/signIn/route.js';
+import { creatGroupRoute } from './screens/CreateNewGroup/route.js';
+
 const app = express();
 
 dotenv.config();
@@ -17,4 +19,4 @@ app.use(cors());
 app.listen(4000, () => console.log('server is up and runing'));
 app.post('/api/signUp', signUpRoute);
 app.post('/api/signIn', signInRoute);
-// checkUserOnSignIn()
+app.post('/api/CreateNewGroup', creatGroupRoute);
