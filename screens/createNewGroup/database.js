@@ -9,11 +9,15 @@ export const groupSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  code: {
+    type: String,
+    required: true,
+  },
   date: {
     type: Date,
     default: Date.now,
   },
 });
 
-export const groupSchemaModel = mongoose.model('myGroup', groupSchema);
+export const groupSchemaModel = mongoose.model('groups', groupSchema);
 

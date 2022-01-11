@@ -7,6 +7,7 @@ export const creatGroup = async (groupName, numberOfParticipants) => {
     const creatGroup = new groupSchemaModel({
       groupName: groupName,
       numberOfParticipants: numberOfParticipants,
+      code: (Math.random() + 1).toString(36).substring(7),
     });
 
     const data = await creatGroup.save();
