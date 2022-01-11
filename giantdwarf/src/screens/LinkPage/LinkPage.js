@@ -9,7 +9,7 @@ const GeneralInformation = () => {
         <div>your group link:</div>
         <Link to={`/MyPage`}>
           <button className={'button mt-20'} type="submit">
-            home
+            lets begin
           </button>
         </Link>
       </div>

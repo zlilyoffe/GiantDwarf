@@ -7,10 +7,11 @@ class CreateNewGroup extends Component {
     super();
     this.state = {
       groupName: '',
-      numberOfParticipantse: '',
+      numberOfParticipants: '',
     };
     this.changeGroupName = this.changeGroupName.bind(this);
-    this.changenumberOfParticipants = this.changeNumberOfParticipantse.bind(this);
+    this.changeNumberOfParticipants =
+      this.changeNumberOfParticipants.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
   changeGroupName(event) {
@@ -18,27 +19,39 @@ class CreateNewGroup extends Component {
       groupName: event.target.value,
     });
   }
-  changeNumberOfParticipantse(event) {
+  changeNumberOfParticipants(event) {
     this.setState({
       numberOfParticipants: event.target.value,
     });
   }
-  onSubmit(event) {
+  async onSubmit(event) {
     event.preventDefault();
 
     const registered = {
       groupName: this.state.groupName,
       numberOfParticipants: this.state.numberOfParticipants,
+      code: this.state.code,
     };
-    axios.post('http://localhost:4000/api/CreateNewGroup', registered);
-    window.location = '/LinkPage';
+    var codeResult = {};
+    const response = await axios.post(
+      'http://localhost:4000/api/CreateNewGroup',
+      registered
+    );
+    codeResult = response.data;
+    // axios.post('http://localhost:4000/api/CreateNewGroup', registered);
+    // window.location = '/LinkPage';
+    this.setState({
+      groupName: '',
+      numberOfParticipants: '',
+    });
+    console.log(codeResult.code);
   }
   render() {
     return (
       <div>
         <div className="container">
           <div className="form-div">
-            <h1 className='heading'>Create Group</h1>
+            <h1 className="heading">Create Group</h1>
             <form onSubmit={this.onSubmit}>
               <input
                 type="text"
@@ -50,7 +63,7 @@ class CreateNewGroup extends Component {
               <input
                 type="text"
                 placeholder="Number of participants"
-                onChange={this.changeNumberOfParticipantse}
+                onChange={this.changeNumberOfParticipants}
                 value={this.state.numberOfParticipants}
                 className="form-control form-group"
               />
