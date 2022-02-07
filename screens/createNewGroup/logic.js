@@ -11,7 +11,7 @@ export const creatGroup = async (groupName, numberOfParticipants) => {
     });
 
     const data = await creatGroup.save();
-    return data;
+    return { id: data._id };
   } catch (e) {
     console.log(e);
   }
