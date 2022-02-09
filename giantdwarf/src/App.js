@@ -11,10 +11,9 @@ import LinkPage from './screens/LinkPage/LinkPage';
 import Play from './screens/Play/Play';
 import YourGiant from './screens/YourGiant/YourGiant';
 import GeneralInformation from './screens/GeneralInformation/GeneralInformation';
-import { StoreId } from './store/storeId';
+
 
 const App = () => {
-  // const store = new StoreId();
   return (
     <Router>
       <Route path="/" exact component={JoinGame} />

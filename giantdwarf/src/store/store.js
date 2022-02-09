@@ -1,16 +1,13 @@
-import {
-  action,
-  makeObservable,
-  observable,
-} from 'mobx';
+import { action, makeObservable, observable } from 'mobx';
 
-export class StoreId {
+export class Store {
   constructor() {
     makeObservable(this, {
       currentGroupId: observable,
       setCurrentGroupId: action,
     });
   }
+  currentGroupId = 'group-id';
   setCurrentGroupId = (groupId) => {
     this.currentGroupId = groupId;
   };

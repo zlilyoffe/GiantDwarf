@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
-
+import { useStore } from '../../helpers/useStore';
+import { useHistory } from 'react-router-dom';
 
 function CreateNewGroup() {
   const [groupName, setGroupName] = useState('');
   const [numberOfParticipants, setNumberOfParticipants] = useState('');
-  const [code, updateCode] = useState('');
+  const [code, setCode] = useState('');
+  const storeId = useStore();
+  const history = useHistory();
   const changeGroupName = (e) => {
     setGroupName(e.target.value);
   };
@@ -28,8 +31,9 @@ function CreateNewGroup() {
     );
     groupId = response.data.id;
     if (groupId) {
-      window.location = '/LinkPage';
-      // setCurrentGroupId(groupId);
+      console.log(groupId);
+      storeId.setCurrentGroupId(groupId);
+      history.push('/LinkPage');
     } else {
       setGroupName('');
       setNumberOfParticipants('');
