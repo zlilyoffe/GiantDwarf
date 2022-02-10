@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 
+mongoose.Promise = global.Promise;
+
 export const groupSchema = new mongoose.Schema({
     groupName: {
     type: String,
@@ -19,5 +21,5 @@ export const groupSchema = new mongoose.Schema({
   },
 });
 
-export const groupSchemaModel = mongoose.model('groups', groupSchema);
+export const groupSchemaModel = mongoose.models.groups || mongoose.model('groups', groupSchema);
 
