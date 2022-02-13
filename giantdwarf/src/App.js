@@ -2,6 +2,7 @@ import React from 'react';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+
 import JoinGame from './screens/JoinGame/JoinGame';
 import SignUp from './screens/SignUp/SignUp';
 import SignIn from './screens/SignIn/SignIn';
