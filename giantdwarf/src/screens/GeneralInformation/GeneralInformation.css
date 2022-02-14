@@ -1,0 +1,105 @@
+.heading2 {
+  position: relative;
+  margin: 100px;
+  padding: 10px;
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 1.227;
+  color: white;
+  margin-top: 100px;
+  margin-bottom: 30px;
+  /* display: flex;
+  align-items: flex-start; */
+  letter-spacing: -0.01em;
+  /* text-align: center; */
+  animation-name: general;
+  animation-duration: 4s;
+  animation-delay: 2s;
+}
+.generalText {
+  display: flex;
+  margin: auto;
+  position: relative;
+  color: white;
+  box-sizing: border-box;
+  width: 800px;
+  height: 500px;
+  padding: 20px;
+  /* border: 3px solid rgb(255, 255, 255); */
+  font-size: 50px;
+  font-weight: 1000;
+  line-height: 1.191;
+  margin-top: 150px;
+}
+
+.button {
+  position: absolute;
+  border-radius: 5px;
+  /* display: flex; */
+  text-decoration: none;
+  display: inline-flex;
+  background-color: rgb(48, 100, 46);
+  /* border: 1px solid rgba(255, 255, 255, 0.8); */
+  padding: 10px;
+  font-size: 20px;
+  /* border-radius: 10px; */
+  color: white;
+  text-align: center;
+  /* margin: 20px; */
+  margin-top: 50px;
+  margin-left: 1000px;
+  letter-spacing: -0.01em;
+  animation-name: button;
+  animation-duration: 3.5s;
+  animation-delay: 7s;
+}
+.generalOuterContainer {
+  background-color: rgb(216, 140, 96);
+  animation-name: backgroundAnimation;
+  animation-duration: 7s;
+}
+
+@keyframes backgroundAnimation {
+  from {
+    background-color: rgb(216, 140, 96);
+  }
+  to {
+    background-color: rgb(197, 197, 34);
+  }
+}
+@keyframes general {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    left: 200px;
+    top: 0px;
+  }
+  50% {
+    left: 200px;
+    top: 200px;
+  }
+  75% {
+    left: 0px;
+    top: 200px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+@keyframes button {
+  25%{
+    left: 0px;
+    top: 893px;
+  }
+  50% {
+    left: 0px;
+    top: 700px;
+  }
+  75% {
+    left: 0px;
+    top: 893px;
+  }
+}
