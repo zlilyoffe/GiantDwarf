@@ -31,7 +31,6 @@ function CreateNewGroup() {
     );
     groupId = response.data.id;
     if (groupId) {
-      console.log(groupId);
       storeId.setCurrentGroupId(groupId);
       history.push('/LinkPage');
     } else {
