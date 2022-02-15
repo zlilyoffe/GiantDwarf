@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import axios from 'axios';
+import './SignUp.css';
+ 
 
 class SignUp extends Component {
     constructor(){
@@ -54,37 +56,38 @@ class SignUp extends Component {
         window.location = '/SignIn'
 
     }
+  
     render() {
         return ( 
             <div>
-                <div className='container'>
-                    <div className='form-div'>
+                <div className='OuterContainerSignUp'>
+                    <div className='InnerContainerSignUp'>
                         <form onSubmit={this.onSubmit}>
                             <input type = 'text'
                             placeholder='Full Name'
                             onChange={this.changeFullName}
                             value={this.state.fullName}
-                            className='form-control form-group'
+                            className='fullName'
                             />
                                 <input type = 'text'
                             placeholder='User Name'
                             onChange={this.changeUserName}
                             value={this.state.userName}
-                            className='form-control form-group'
+                            className='userName'
                             />
                                 <input type = 'text'
                             placeholder='E-mail'
                             onChange={this.changeEmail}
                             value={this.state.email}
-                            className='form-control form-group'
+                            className='email'
                             />
                                 <input type = 'text'
                             placeholder='Password'
                             onChange={this.changePassword}
                             value={this.state.password}
-                            className='form-control form-group'
+                            className='password'
                             />
-                            <input type='submit' className='btn btn-danger btn-block' value='Submit' />
+                            <input type='submit' className='buttonSubmit' value='Submit' />
                         </form>
 
                     </div>
