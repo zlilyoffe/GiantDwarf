@@ -6,6 +6,7 @@ import { signUpRoute } from './screens/signUp/route.js';
 import { signInRoute } from './screens/signIn/route.js';
 import { creatGroupRoute } from './screens/CreateNewGroup/route.js';
 import { linkPageRoute } from './screens/LinkPage/route.js';
+import { myPageRoute } from './screens/myPage/route.js';
 
 const app = express();
 
@@ -22,3 +23,4 @@ app.post('/api/signUp', signUpRoute);
 app.post('/api/signIn', signInRoute);
 app.post('/api/CreateNewGroup', creatGroupRoute);
 app.post('/api/LinkPage', linkPageRoute);
+app.post('/api/MyPage', myPageRoute);

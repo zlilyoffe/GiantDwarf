@@ -8,41 +8,50 @@ class MyPage extends Component {
     super();
 
     this.state = {
-      enter: '',
+      groupCode: '',
       loginErrors: '',
     };
-    this.changeEnter = this.changeEnter.bind(this);
+    this.changeGroupCode = this.changeGroupCode.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-  changeEnter(event) {
+  changeGroupCode(event) {
     this.setState({
-      Enter: event.target.value,
+      groupCode: event.target.value,
     });
   }
   async onSubmit(event) {
     event.preventDefault();
 
     const registered = {
-      enter: this.state.enter,
+      groupCode: this.state.groupCode,
     };
-    axios.post('http://localhost:4000/api/MyPage', registered);
-
-    window.location = '/SignIn';
+    console.log(registered);
+    var newGroupResult = {};
+    const response = await axios.post(
+      'http://localhost:4000/api/MyPage', registered);
+      newGroupResult = response.data;
+    if (newGroupResult.groupExists === true) {
+      console.log(response.data);
+      console.log('blabala');
+    } else {
+      console.log(response.data);
+      // window.location = '/MyPage';
+    }
   }
-
+  // uc8z3
   render() {
     return (
       <div>
         <div className="myPageOuterContainer">
           <div className="myPageInnerContainer">
-            <h1 className="heading">My groups</h1>
+            <h1 className="heading3">My groups</h1>
             <Link to={`/Play`}>
-              <button className={'button mt-20'} type="submit">
+              <button type="submit">
                 group 1
               </button>
             </Link>
             <Link to={`/Play`}>
-              <button className={'button mt-40'} type="submit">
+              <button type="submit">
                 group 2
               </button>
             </Link>
@@ -50,7 +59,7 @@ class MyPage extends Component {
           <div>
             <h2 className="createNewGroup">Create New Group</h2>
             <Link to={`/CreateNewGroup`}>
-              <button className={'button mt-20'} type="submit">
+              <button type="submit">
                 Create new group
               </button>
             </Link>
@@ -60,9 +69,8 @@ class MyPage extends Component {
               <input
                 type="text"
                 placeholder="Enter link to join group"
-                onChange={this.changeEnter}
-                value={this.state.enter}
-                className="form-control form-group"
+                onChange={this.changeGroupCode}
+                value={this.state.groupCode}
               />
               <input
                 type="submit"
