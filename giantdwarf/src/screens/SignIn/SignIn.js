@@ -38,7 +38,7 @@ class SignIn extends Component {
     );
     signInResult = response.data;
     if (signInResult.userExists === true) {
-      window.location = '/MyPage';
+      window.location = '/Home';
     } else {
       window.location = '/';
     }

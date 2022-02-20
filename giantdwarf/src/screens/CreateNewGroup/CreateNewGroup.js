@@ -24,12 +24,12 @@ function CreateNewGroup() {
       numberOfParticipants: numberOfParticipants,
       code: code,
     };
-    let groupId = {};
+    // let groupId = {};
     const response = await axios.post(
       'http://localhost:4000/api/CreateNewGroup',
       registered
     );
-    groupId = response.data.id;
+    const groupId = response.data.id;
     if (groupId) {
       storeId.setCurrentGroupId(groupId);
       history.push('/LinkPage');
