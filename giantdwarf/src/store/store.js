@@ -5,10 +5,16 @@ export class Store {
     makeObservable(this, {
       currentGroupId: observable,
       setCurrentGroupId: action,
+      currentGroupName: observable,
+      setGroupName: action,
     });
   }
   currentGroupId = 'group-id';
   setCurrentGroupId = (groupId) => {
     this.currentGroupId = groupId;
+  };
+  currentGroupName = 'group-name';
+  setGroupName = (groupName) => {
+    this.currentGroupName = groupName;
   };
 }

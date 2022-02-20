@@ -12,6 +12,7 @@ const LinkPage = () => {
       const response = await axios.post('http://localhost:4000/api/LinkPage', {
         groupId: store.currentGroupId,
       });
+      console.log(response.data);
       setCodeResult(response.data.codeResult);
     })();
   }, []);

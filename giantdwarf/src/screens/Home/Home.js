@@ -2,23 +2,27 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+import { useStore } from '../../helpers/useStore';
+import { observer } from 'mobx-react-lite';
 
 function Home() {
-  console.log('zlil');
   const [groupCode, setGroupCode] = useState('');
+  const [name, setName] = useState('');
+  const storeGroupName = useStore();
   const changeGroupCode = (e) => {
     setGroupCode(e.target.value);
   };
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await axios.post(
-      'http://localhost:4000/api/Home',
-      {groupCode}
-    );
-    if (response.data.groupExists === true) {
-      console.log(response.data);
-      console.log('blabala');
+    const response = await axios.post('http://localhost:4000/api/Home', {
+      groupCode,
+    });
+    setName(response.data.name);
+    const groupName = response.data.name;
+    if (groupName) {
+      storeGroupName.setGroupName(groupName);
+      console.log(groupName);
     } else {
       console.log('oppsss');
     }
@@ -29,7 +33,7 @@ function Home() {
         <div className="myPageInnerContainer">
           <h1 className="heading3">My groups</h1>
           <Link to={`/Play`}>
-            <button type="submit">group 1</button>
+            <button type="submit">{name}</button>
           </Link>
           <Link to={`/Play`}>
             <button type="submit">group 2</button>
@@ -63,4 +67,4 @@ function Home() {
 
 // uc8z3
 
-export default Home;
+export default observer(Home);
