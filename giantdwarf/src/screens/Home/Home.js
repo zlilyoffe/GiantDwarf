@@ -9,6 +9,7 @@ function Home() {
   const [groupCode, setGroupCode] = useState('');
   const [name, setName] = useState('');
   const storeGroupName = useStore();
+  
   const changeGroupCode = (e) => {
     setGroupCode(e.target.value);
   };

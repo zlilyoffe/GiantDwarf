@@ -20,7 +20,7 @@ const LinkPage = () => {
     <div className="joinOuterContainer">
       <div className="joinInnerContainer">
         <h1 className="heading">Group created successfully!!!</h1>
-        <h2>your group link:{codeResult}</h2>
+        <h2>your group link: {codeResult}</h2>
         <Link to={`/Home`}>
           <button type="submit">lets begin</button>
         </Link>
