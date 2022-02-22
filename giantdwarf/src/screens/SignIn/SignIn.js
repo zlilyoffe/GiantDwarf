@@ -37,8 +37,10 @@ class SignIn extends Component {
       registered
     );
     signInResult = response.data;
-    if (signInResult.userExists === true) {
-      window.location = '/Home';
+       if (signInResult.userExists === true) {
+      // history.push('/Home');
+      // window.location = '/Home';
+      console.log('signInRESSSSS', response);
     } else {
       window.location = '/';
     }

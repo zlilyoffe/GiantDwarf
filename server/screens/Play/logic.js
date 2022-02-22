@@ -4,6 +4,7 @@ import bcrypt from 'bcrypt';
 import { getGroupName } from './database.js';
 
 export const groupName = async (groupId) => {
+  console.log('logic', groupId);
   try {
     const group = await getGroupName(groupId);
     if (!group) {

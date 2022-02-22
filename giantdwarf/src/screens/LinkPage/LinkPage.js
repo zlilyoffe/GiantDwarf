@@ -13,6 +13,7 @@ const LinkPage = () => {
         groupId: store.currentGroupId,
       });
       console.log(response.data);
+      console.log(store.currentGroupId);
       setCodeResult(response.data.codeResult);
     })();
   }, []);

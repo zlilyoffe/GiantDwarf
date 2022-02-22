@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { observer } from 'mobx-react-lite';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useStore } from '../../helpers/useStore';
 import { Link } from 'react-router-dom';
 
@@ -12,6 +12,7 @@ const Play = () => {
       const response = await axios.post('http://localhost:4000/api/Play', {
         groupId: store.currentGroupId,
       });
+      console.log(store.currentGroupId);
       setName(response.data.groupName);
     })();
   }, []);

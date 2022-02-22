@@ -6,9 +6,11 @@ import { useStore } from '../../helpers/useStore';
 import { observer } from 'mobx-react-lite';
 
 function Home() {
+  const store = useStore();
   const [groupCode, setGroupCode] = useState('');
   const [name, setName] = useState('');
   const storeGroupName = useStore();
+  console.log('try', store.currentUserId);
   
   const changeGroupCode = (e) => {
     setGroupCode(e.target.value);
@@ -17,7 +19,7 @@ function Home() {
     e.preventDefault();
 
     const response = await axios.post('http://localhost:4000/api/Home', {
-      groupCode,
+      groupCode, userId: store.currentUserId,
     });
     setName(response.data.name);
     const groupName = response.data.name;
