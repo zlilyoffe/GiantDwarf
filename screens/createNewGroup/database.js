@@ -19,6 +19,10 @@ export const groupSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  participants: {
+    type: Array,
+    default: [],
+  }
 });
 
 export const groupSchemaModel = mongoose.models.groups || mongoose.model('groups', groupSchema);
