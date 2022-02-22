@@ -7,6 +7,8 @@ export class Store {
       setCurrentGroupId: action,
       currentGroupName: observable,
       setGroupName: action,
+      currentUserId:observable,
+      setCurrentUserId: action,
     });
   }
   currentGroupId = 'group-id';
@@ -16,5 +18,9 @@ export class Store {
   currentGroupName = 'group-name';
   setGroupName = (groupName) => {
     this.currentGroupName = groupName;
+  };
+  currentUserId = 'user-id';
+  setCurrentUserId = (userId) => {
+    this.currentUserId = userId;
   };
 }
