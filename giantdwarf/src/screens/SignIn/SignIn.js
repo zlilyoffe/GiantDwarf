@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import { useStore } from '../../helpers/useStore';
 
 function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const storeId = useStore();
   const history = useHistory();
   const changeEmail = (e) => {
     setEmail(e.target.value);
@@ -25,8 +27,12 @@ function SignIn() {
       registered
     );
     const signInResult = response.data;
-    if (signInResult.userExists === true) {
+    const userId = signInResult.userId;
+    console.log(signInResult.userId);
+    if (signInResult.userExists === true && userId) {
+      storeId.setCurrentUserId(userId);
       history.push('/Home');
+      console.log('signin',signInResult.userId);
     } else {
       window.location = '/';
     }

@@ -7,7 +7,7 @@ export class Store {
       setCurrentGroupId: action,
       currentGroupName: observable,
       setGroupName: action,
-      currentUserId:observable,
+      currentUserId: observable,
       setCurrentUserId: action,
     });
   }

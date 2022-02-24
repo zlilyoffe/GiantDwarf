@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useStore } from '../../helpers/useStore';
 import { observer } from 'mobx-react-lite';
 
-function Home() {
+const Home = () => {
   const store = useStore();
   const [groupCode, setGroupCode] = useState('');
   const [name, setName] = useState('');
