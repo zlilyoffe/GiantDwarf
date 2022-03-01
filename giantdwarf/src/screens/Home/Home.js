@@ -12,7 +12,7 @@ const Home = () => {
   const [groupNames, setGroupNames] = useState('');
   const storeGroupName = useStore();
   console.log('try', store.currentUserId);
-  
+
   React.useEffect(() => {
     (async () => {
       const groupsResponse = await axios.post(
@@ -43,20 +43,33 @@ const Home = () => {
     } else {
       console.log('oppsss');
     }
+    console.log('groupNames', groupNames);
   };
   return (
     <div>
+      {/* {
+        <ol>
+          {groupNames.map((newGroupName) => (
+            <li key={newGroupName}>{newGroupName}</li>
+          ))}
+        </ol>
+      } */}
       <div className="myPageOuterContainer">
         <div className="myPageInnerContainer">
           <h1 className="heading3">My groups</h1>
           <Link to={`/Play`}>
             <button type="submit">{name}</button>
           </Link>
-          <ol>
-          <Link to={`/Play`}>
-            <button type="submit">{groupNames}</button>
-          </Link>
-          </ol>
+          {
+            <Link to={`/Play`}>
+              <button type="submit">{groupNames}</button>
+            </Link>
+          }
+          {/* <ol>
+            {groupNames.map((newGroupName) => (
+              <li key={newGroupName}>{newGroupName}</li>
+            ))}
+          </ol> */}
         </div>
         <div>
           <h2 className="createNewGroup">Create New Group</h2>
@@ -85,3 +98,17 @@ const Home = () => {
 };
 
 export default observer(Home);
+
+{
+  /* <Link to={`/Play`}>
+            <button type="submit">{groupNames}</button>
+          </Link> */
+}
+
+{
+  /* <ol>
+{groupNames.map((newGroupName) => (
+  <li key={newGroupName}>{newGroupName}</li>
+))}
+</ol> */
+}

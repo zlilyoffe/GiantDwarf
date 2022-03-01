@@ -2,7 +2,6 @@ import React from 'react';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-
 import JoinGame from './screens/JoinGame/JoinGame';
 import SignUp from './screens/SignUp/SignUp';
 import SignIn from './screens/SignIn/SignIn';
@@ -12,7 +11,6 @@ import Play from './screens/Play/Play';
 import YourGiant from './screens/YourGiant/YourGiant';
 import GeneralInformation from './screens/GeneralInformation/GeneralInformation';
 import Home from './screens/Home/Home';
-
 
 const App = () => {
   return (
