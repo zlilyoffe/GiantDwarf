@@ -9,9 +9,22 @@ const Home = () => {
   const store = useStore();
   const [groupCode, setGroupCode] = useState('');
   const [name, setName] = useState('');
+  const [groupNames, setGroupNames] = useState('');
   const storeGroupName = useStore();
   console.log('try', store.currentUserId);
   
+  React.useEffect(() => {
+    (async () => {
+      const groupsResponse = await axios.post(
+        'http://localhost:4000/api/getUserGroups',
+        {
+          userId: store.currentUserId,
+        }
+      );
+      console.log('mygroups', groupsResponse.data.groupNames);
+      setGroupNames(groupsResponse.data.groupNames);
+    })();
+  }, []);
   const changeGroupCode = (e) => {
     setGroupCode(e.target.value);
   };
@@ -19,7 +32,8 @@ const Home = () => {
     e.preventDefault();
 
     const response = await axios.post('http://localhost:4000/api/Home', {
-      groupCode, userId: store.currentUserId,
+      groupCode,
+      userId: store.currentUserId,
     });
     setName(response.data.name);
     const groupName = response.data.name;
@@ -38,9 +52,11 @@ const Home = () => {
           <Link to={`/Play`}>
             <button type="submit">{name}</button>
           </Link>
+          <ol>
           <Link to={`/Play`}>
-            <button type="submit">group 2</button>
+            <button type="submit">{groupNames}</button>
           </Link>
+          </ol>
         </div>
         <div>
           <h2 className="createNewGroup">Create New Group</h2>
@@ -66,8 +82,6 @@ const Home = () => {
       </div>
     </div>
   );
-}
-
-// uc8z3
+};
 
 export default observer(Home);

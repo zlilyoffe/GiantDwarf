@@ -8,6 +8,7 @@ import { creatGroupRoute } from './screens/CreateNewGroup/route.js';
 import { linkPageRoute } from './screens/LinkPage/route.js';
 import { myPageRoute } from './screens/Home/route.js';
 import { playPageRoute } from './screens/Play/router.js';
+import { getUserGroupsRoute } from './screens/homeGroups/route.js';
 
 const app = express();
 
@@ -26,3 +27,4 @@ app.post('/api/CreateNewGroup', creatGroupRoute);
 app.post('/api/LinkPage', linkPageRoute);
 app.post('/api/Home', myPageRoute);
 app.post('/api/Play', playPageRoute);
+app.post('/api/getUserGroups', getUserGroupsRoute);
