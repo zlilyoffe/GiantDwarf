@@ -10,7 +10,7 @@ export const groupName = async (groupId) => {
     if (!group) {
       return { groupExists: false, error: 'group does not exist' };
     }
-    return { groupName: group.groupName };
+    return { groupName: group.groupName, numberOfParticipants: group.numberOfParticipants, participants: group.participants };
   } catch (e) {
     console.log(e);
   }
