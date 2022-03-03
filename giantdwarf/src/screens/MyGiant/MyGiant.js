@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 import React, { useState } from 'react';
 import { useStore } from '../../helpers/useStore';
 
-const YourGiant = () => {
+const MyGiant = () => {
   const store = useStore();
   const [giant, setGiant] = useState('');
   React.useEffect(() => {
@@ -29,4 +29,4 @@ const YourGiant = () => {
   );
 };
 
-export default YourGiant;
+export default observer(MyGiant);

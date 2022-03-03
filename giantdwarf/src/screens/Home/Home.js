@@ -47,13 +47,6 @@ const Home = () => {
   };
   return (
     <div>
-      {/* {
-        <ol>
-          {groupNames.map((newGroupName) => (
-            <li key={newGroupName}>{newGroupName}</li>
-          ))}
-        </ol>
-      } */}
       <div className="myPageOuterContainer">
         <div className="myPageInnerContainer">
           <h1 className="heading3">My groups</h1>

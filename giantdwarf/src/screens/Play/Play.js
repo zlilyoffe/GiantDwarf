@@ -30,7 +30,7 @@ const Play = () => {
     e.preventDefault();
 
     if (numberOfParticipants <= participants.length) {
-      history.push('/YourGiant');
+      history.push('/MyGiant');
     } else {
       window.location = '/';
     }
