@@ -9,6 +9,7 @@ import { linkPageRoute } from './screens/LinkPage/route.js';
 import { myPageRoute } from './screens/Home/route.js';
 import { playPageRoute } from './screens/Play/router.js';
 import { getUserGroupsRoute } from './screens/homeGroups/route.js';
+import { getMyGiantById } from './screens/myGiant/route.js';
 
 const app = express();
 
@@ -28,3 +29,4 @@ app.post('/api/LinkPage', linkPageRoute);
 app.post('/api/Home', myPageRoute);
 app.post('/api/Play', playPageRoute);
 app.post('/api/getUserGroups', getUserGroupsRoute);
+app.post('/api/myGiant', getMyGiantById);
