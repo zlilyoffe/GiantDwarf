@@ -1,0 +1,31 @@
+/* .heading {
+  display: inline-grid;
+  color: rgb(190, 80, 36);
+  padding: 40px;
+  font-family: Arial;
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgb(228, 77, 18);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  margin: 30px;
+  display: inline- grid;
+  margin-top: 50px;
+}
+
+.logo {
+  display: grid;
+  background-image: url(./logo.png);
+} */

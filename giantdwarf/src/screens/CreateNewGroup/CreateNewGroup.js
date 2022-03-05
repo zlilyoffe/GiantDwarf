@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+import { useStore } from '../../helpers/useStore';
+import { useHistory } from 'react-router-dom';
 
 function CreateNewGroup() {
   const [groupName, setGroupName] = useState('');
   const [numberOfParticipants, setNumberOfParticipants] = useState('');
   const [code, setCode] = useState('');
+  const storeId = useStore();
+  const history = useHistory();
   const changeGroupName = (e) => {
     setGroupName(e.target.value);
   };
@@ -20,19 +24,19 @@ function CreateNewGroup() {
       numberOfParticipants: numberOfParticipants,
       code: code,
     };
-    let codeResult = {};
+    // let groupId = {};
     const response = await axios.post(
       'http://localhost:4000/api/CreateNewGroup',
       registered
     );
-    codeResult = response.data;
-    if (codeResult.code) {
-      window.location = '/LinkPage';
+    const groupId = response.data.id;
+    if (groupId) {
+      storeId.setCurrentGroupId(groupId);
+      history.push('/LinkPage');
     } else {
       setGroupName('');
       setNumberOfParticipants('');
     }
-    console.log(codeResult.code);
   };
   return (
     <div>
