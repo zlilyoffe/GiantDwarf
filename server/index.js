@@ -29,4 +29,4 @@ app.post('/api/LinkPage', linkPageRoute);
 app.post('/api/Home', myPageRoute);
 app.post('/api/Play', playPageRoute);
 app.post('/api/getUserGroups', getUserGroupsRoute);
-app.post('/api/myGiant', getMyGiantById);
+app.post('/api/getUserGiant', getMyGiantById);

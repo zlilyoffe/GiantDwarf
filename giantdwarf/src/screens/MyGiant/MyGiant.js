@@ -8,7 +8,7 @@ const MyGiant = () => {
   const [giant, setGiant] = useState('');
   React.useEffect(() => {
     (async () => {
-      const response = await axios.post('http://localhost:4000/api/myGiant', {
+      const response = await axios.post('http://localhost:4000/api/getUserGiant', {
         groupId: store.currentGroupId,
       });
       console.log(response.data);

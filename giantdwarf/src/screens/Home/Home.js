@@ -4,12 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { useStore } from '../../helpers/useStore';
 import { observer } from 'mobx-react-lite';
+import { useHistory } from 'react-router-dom';
 
 const Home = () => {
   const store = useStore();
   const [groupCode, setGroupCode] = useState('');
   const [name, setName] = useState('');
-  const [groupNames, setGroupNames] = useState('');
+  const [groupNames, setGroupNames] = useState([]);
+  const history = useHistory();
   const storeGroupName = useStore();
   console.log('try', store.currentUserId);
 
@@ -27,6 +29,9 @@ const Home = () => {
   }, []);
   const changeGroupCode = (e) => {
     setGroupCode(e.target.value);
+  };
+  const startPlay = () => {
+    history.push('/Play');
   };
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -53,16 +58,16 @@ const Home = () => {
           <Link to={`/Play`}>
             <button type="submit">{name}</button>
           </Link>
-          {
+          {/* {
             <Link to={`/Play`}>
               <button type="submit">{groupNames}</button>
             </Link>
-          }
-          {/* <ol>
-            {groupNames.map((newGroupName) => (
-              <li key={newGroupName}>{newGroupName}</li>
-            ))}
-          </ol> */}
+          } */}
+          {groupNames?.map((newGroupName) => (
+            <button onClick={startPlay} key={newGroupName}>
+              {newGroupName}
+            </button>
+          ))}
         </div>
         <div>
           <h2 className="createNewGroup">Create New Group</h2>
