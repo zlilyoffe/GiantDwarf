@@ -8,7 +8,7 @@ export const creatGroup = async (groupName, numberOfParticipants, userId) => {
       groupName: groupName,
       numberOfParticipants: numberOfParticipants,
       code: (Math.random() + 1).toString(36).substring(7),
-      participants: [userId],
+      participants: [],
     });
 
     const data = await creatGroup.save();

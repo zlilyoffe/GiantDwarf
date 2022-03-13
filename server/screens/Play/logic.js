@@ -1,12 +1,12 @@
 import { groupSchema } from '../createNewGroup/database.js';
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
-import { getGroupName } from './database.js';
+import { getGroup } from './database.js';
 
 export const groupName = async (groupId) => {
   console.log('logic', groupId);
   try {
-    const group = await getGroupName(groupId);
+    const group = await getGroup(groupId);
     if (!group) {
       return { groupExists: false, error: 'group does not exist' };
     }
