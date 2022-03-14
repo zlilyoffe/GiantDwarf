@@ -8,7 +8,7 @@ the game steps are:
 3. logIn into the game
 4. Create group or enter existing group.
 5. Submit and Play.
-6. The App will send you, your GIANT and his information.
+6. The App will send you your GIANT and his information.
 
 
 ![Alt text](/giantdwarf/src/images/banner-img.png?raw=true "giantDwarf")
